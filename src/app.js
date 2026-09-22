@@ -188,7 +188,14 @@ app.use(
   "/api/v1/uploads",
   uploadRoutes
 );
-
+app.get("/api/v1/debug/routes", (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: "Current SportLinked backend is running",
+    athleteProfileRoute: "/api/v1/athletes/me",
+    timestamp: new Date().toISOString(),
+  });
+});
 // ==========================================
 // 404 HANDLER
 // ==========================================
